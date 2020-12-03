@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace AdventOfCode.Solutions._2020
+{
+    public class _xx_A : Solution
+    {
+        public _xx_A(IEnumerable<string> inputs) : base(inputs) { }
+
+        protected override string Solver()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class _xx_B : Solution
+    {
+        public _xx_B(IEnumerable<string> inputs) : base(inputs) { }
+
+        protected override string Solver()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
