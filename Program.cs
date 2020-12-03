@@ -3,8 +3,7 @@ using AdventOfCode.Exceptions;
 using AdventOfCode.Helpers;
 using AdventOfCode.Infrastructure;
 using AdventOfCode.Solutions;
-using Microsoft.Extensions.Configuration;
-using Console = System.Console;
+
 
 namespace AdventOfCode
 {
@@ -49,7 +48,7 @@ namespace AdventOfCode
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                ui.ShowError(e.Message);
 
             }
             finally
