@@ -48,10 +48,8 @@ namespace AdventOfCode.Solutions._2020
                     continue;
 
                 xPosition += right;
-                var pattern = inputs[i];
-                while (pattern.Length <= xPosition) pattern += inputs[i];
-
-                if (pattern[xPosition] == '#')
+                var positionWithoutRepeats = xPosition % inputs[i].Length;
+                 if (inputs[i][positionWithoutRepeats] == '#')
                     numberOfThrees++;
             }
 
