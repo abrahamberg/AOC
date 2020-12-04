@@ -13,11 +13,9 @@ namespace AdventOfCode.Solutions._2020
 
         protected override string Solver()
         {
-            return Looper.CountValid(Inputs.ToList(), inputLines =>
-            {
-                var passport = new Passport(inputLines);
-                return passport.FieldsAreValid();
-            }).ToString();
+            return Looper.CountValid(Inputs.ToList(),
+                    inputLines => new Passport(inputLines).FieldsAreValid())
+                .ToString();
         }
     }
 
@@ -29,18 +27,15 @@ namespace AdventOfCode.Solutions._2020
 
         protected override string Solver()
         {
-            return Looper.CountValid(Inputs.ToList(), inputLines =>
-            {
-                var passport = new Passport(inputLines);
-                return passport.ContentsAreValid();
-            }).ToString();
-
+            return Looper.CountValid(Inputs,
+                    inputLines => new Passport(inputLines).ContentsAreValid())
+                .ToString();
         }
     }
 
     internal static class Looper
     {
-        internal static int CountValid(IReadOnlyList<string> inputs, Func<string, bool> validate )
+        internal static int CountValid(IEnumerable<string> inputs, Func<string, bool> validate)
         {
             var countValid = 0;
             var inputLines = "";
@@ -48,14 +43,14 @@ namespace AdventOfCode.Solutions._2020
                 if (string.IsNullOrWhiteSpace(input))
                 {
                     if (validate(inputLines))
-                        countValid ++;
+                        countValid++;
                     inputLines = "";
                 }
                 else
                 {
                     inputLines += " " + input;
 
-                    if (input == inputs.Last() && validate(inputLines)) countValid++ ;
+                    if (input == inputs.Last() && validate(inputLines)) countValid++;
                 }
 
             return countValid;
