@@ -7,9 +7,7 @@ namespace AdventOfCode.Solutions._2020
 {
     public class _04_A : Solution
     {
-        public _04_A(IEnumerable<string> inputs) : base(inputs)
-        {
-        }
+        public _04_A(IEnumerable<string> inputs) : base(inputs) {}
 
         protected override string Solver()
         {
@@ -21,9 +19,7 @@ namespace AdventOfCode.Solutions._2020
 
     public class _04_B : Solution
     {
-        public _04_B(IEnumerable<string> inputs) : base(inputs)
-        {
-        }
+        public _04_B(IEnumerable<string> inputs) : base(inputs) {}
 
         protected override string Solver()
         {
@@ -37,23 +33,10 @@ namespace AdventOfCode.Solutions._2020
     {
         internal static int CountValid(IEnumerable<string> inputs, Func<string, bool> validate)
         {
-            var countValid = 0;
-            var inputLines = "";
-            foreach (var input in inputs)
-                if (string.IsNullOrWhiteSpace(input))
-                {
-                    if (validate(inputLines))
-                        countValid++;
-                    inputLines = "";
-                }
-                else
-                {
-                    inputLines += " " + input;
-
-                    if (input == inputs.Last() && validate(inputLines)) countValid++;
-                }
-
-            return countValid;
+            return string.Join(" ",
+                    inputs.Select(x => string.IsNullOrWhiteSpace(x) ? "\n" : x))
+                .Split("\n")
+                .Count(validate);
         }
     }
 
@@ -63,8 +46,7 @@ namespace AdventOfCode.Solutions._2020
 
         public Passport(string inputLines)
         {
-            inputLines = inputLines.Trim();
-            _passInfo = inputLines.Split(' ')
+            _passInfo = inputLines.Trim().Split(' ')
                 .Select(value => value.Split(':'))
                 .ToDictionary(pair => pair[0], pair => pair[1]);
         }
@@ -89,16 +71,16 @@ namespace AdventOfCode.Solutions._2020
                 switch (key)
                 {
                     case "byr":
-                        if (!CheckValidNumber(value, 1920, 2002))
+                        if (!value.CheckValidNumberInRange(1920, 2002))
                             return false;
                         break;
                     case "iyr":
-                        if (!CheckValidNumber(value, 2010, 2020))
+                        if (!value.CheckValidNumberInRange(2010, 2020))
                             return false;
                         break;
                     case "eyr":
-                        if (!CheckValidNumber(value, 2020, 2030))
-                            return false;
+                        if (!value.CheckValidNumberInRange(2020, 2030))
+                            return false; 
                         break;
                     case "hgt":
                         if (!ValidateHeight(value))
@@ -114,7 +96,7 @@ namespace AdventOfCode.Solutions._2020
                             return false;
                         break;
                     case "pid":
-                        if (!ValidatePassportID(value))
+                        if (!ValidatePassportId(value))
                             return false;
                         break;
                 }
@@ -122,19 +104,19 @@ namespace AdventOfCode.Solutions._2020
             return true;
         }
 
-        private bool ValidatePassportID(string infoValue)
+        private static bool ValidatePassportId(string infoValue)
         {
             var rx = new Regex(@"^\d{9}$");
             return rx.IsMatch(infoValue);
         }
 
-        private bool ValidateColor(string infoValue)
+        private static bool ValidateColor(string infoValue)
         {
             var rx = new Regex(@"^#[0-9a-fA-F]{6}$");
             return rx.IsMatch(infoValue);
         }
 
-        private bool ValidateEyeColor(string infoValue)
+        private static bool ValidateEyeColor(string infoValue)
         {
             const string colors = "amb blu brn gry grn hzl oth";
             return colors.Contains(infoValue);
@@ -145,23 +127,18 @@ namespace AdventOfCode.Solutions._2020
             if (infoValue.Contains("cm"))
             {
                 infoValue = infoValue.Replace("cm", "");
-                return CheckValidNumber(infoValue, 150, 193);
+                return infoValue.CheckValidNumberInRange(150, 193);
             }
 
             if (infoValue.Contains("in"))
             {
                 infoValue = infoValue.Replace("in", "");
-                return CheckValidNumber(infoValue, 59, 76);
+                return infoValue.CheckValidNumberInRange(59, 76);
             }
 
             return false;
         }
 
-        private static bool CheckValidNumber(string s, int start, int end)
-        {
-            if (!int.TryParse(s, out var i))
-                return false;
-            return i >= start && i <= end;
-        }
+      
     }
 }
