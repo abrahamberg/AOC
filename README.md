@@ -18,7 +18,7 @@ For each day make a file under [year]/[day].cs in the project
 
 ## The Code 
 Your class 
-in going to be named something like ` _01 ` Make it inherit from `Solution` and user visual studio to generate code  OR copy this code and replace xx with the day .
+in going to be named something like ` _01 ` Make it inherit from `Solution` and use visual studio to generate code  OR copy this code and replace xx with the day .
 
 Make sure your namespce matches the folder
 ```
@@ -50,7 +50,7 @@ namespace AdventOfCode._2020
 
 
 ## The solution 
-Write your solution in the SolverA()  and SolverB() for each task of the day. **inputs** are the lines of the input file.  And don't forget to return your answer as string of course.
+Write your solution inside  SolverA()  and SolverB() for each task of the day. Arguments **inputs** are the lines of the input file.  And don't forget to return your answer as string of course.
 
 ## The Run
 ### From Command Line 
