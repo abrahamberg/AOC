@@ -39,25 +39,25 @@ namespace AdventOfCode._2020
                 var rows = Enumerable.Range(0, 128).ToList();
                 var seats = Enumerable.Range(0, 8).ToList();
 
-                for (var i = 0; i < 7; i++) rows = spacePartition[i] == 'F' ? GetLower(rows) : GetHeigher(rows);
-                for (var i = 7; i < 10; i++) seats = spacePartition[i] == 'L' ? GetLower(seats) : GetHeigher(seats);
+                for (var i = 0; i < 7; i++) rows = spacePartition[i] == 'F' ? GetLower(rows) : GetHigher(rows);
+                for (var i = 7; i < 10; i++) seats = spacePartition[i] == 'L' ? GetLower(seats) : GetHigher(seats);
                 Row = rows.FirstOrDefault();
                 Column = seats.FirstOrDefault();
             }
 
-            public int Row { get; }
-            public int Column { get; }
+            private int Row { get; }
+            private int Column { get; }
 
-            private static List<int> GetLower(List<int> enumerable)
+            private static List<int> GetLower(IReadOnlyCollection<int> enumerable)
             {
-                var avrage = enumerable.Average(x => x);
-                return enumerable.Where(x => x < avrage).ToList();
+                var average = enumerable.Average(x => x);
+                return enumerable.Where(x => x <= average).ToList();
             }
 
-            private static List<int> GetHeigher(List<int> enumerable)
+            private static List<int> GetHigher(IReadOnlyCollection<int> enumerable)
             {
-                var avrage = enumerable.Average(x => x);
-                return enumerable.Where(x => x > avrage).ToList();
+                var average = enumerable.Average(x => x);
+                return enumerable.Where(x => x > average).ToList();
             }
 
             public int GetSitNumber()
