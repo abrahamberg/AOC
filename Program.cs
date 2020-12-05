@@ -1,9 +1,8 @@
 ﻿using System;
+using AdventOfCode.Application;
 using AdventOfCode.Exceptions;
-using AdventOfCode.Helpers;
 using AdventOfCode.Infrastructure;
-using AdventOfCode.Solutions;
-
+using Console = AdventOfCode.Infrastructure.Console;
 
 namespace AdventOfCode
 {
@@ -11,25 +10,26 @@ namespace AdventOfCode
     {
         private static void Main(string[] args)
         {
-            const string defaultPuzzleName = "2020-04";
-            const string defaultPuzzleVersion = "A";
+            const string defaultPuzzleName = "2020-05";
+            const string defaultPuzzleVersion = "B";
 
-            IUserInterface ui = new Infrastructure.Console();
+            IUserInterface ui = new Console();
 
             try
             {
                 var inPuzzleName = args.Length > 0 && !string.IsNullOrWhiteSpace(args[0]) ? args[0] : defaultPuzzleName;
-                var puzzleVersion = args.Length > 1 && !string.IsNullOrWhiteSpace(args[1])
+                var inPuzzleVersion = args.Length > 1 && !string.IsNullOrWhiteSpace(args[1])
                     ? args[1]
                     : defaultPuzzleVersion;
                 var puzzleName = new PuzzleName(inPuzzleName);
+                var puzzleVersion = inPuzzleVersion.ToUpper() == "B" ? VersionEnum.B : VersionEnum.A;
                 var config = new AppConfig();
                 var inputs = FileParse.GetRows($"{config.BaseRoot}", $"{inPuzzleName}.txt");
                 var solution = SolutionFactory.Create(puzzleName, puzzleVersion, inputs);
 
 
                 ui.ShowWelcome();
-                ui.ShowCurrentPuzzle(inPuzzleName, puzzleVersion);
+                ui.ShowCurrentPuzzle(inPuzzleName, puzzleVersion.ToString() );
                 ui.ShowAnswer(solution.Results);
             }
             catch (InputPathDoesNotExistException e)
@@ -44,18 +44,15 @@ namespace AdventOfCode
                 ui.ShowError("It seems that You forgot your Input File  \n " +
                              $"I was Looking for {e.File} \n" +
                              $"at the path : {e.Path}");
-
             }
             catch (Exception e)
             {
                 ui.ShowError(e.Message);
-
             }
             finally
             {
                 ui.Dispose();
             }
-           
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using Ardalis.GuardClauses;
 
-namespace AdventOfCode.Helpers
+namespace AdventOfCode.Application
 {
     public class PuzzleName
     {

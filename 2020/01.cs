@@ -1,17 +1,18 @@
 ﻿using System.Collections.Generic;
+using AdventOfCode.Application;
 
-namespace AdventOfCode.Solutions._2020
+namespace AdventOfCode._2020
 {
-    public class _01_A : Solution
+    public class _01 : Solution
     {
-        public _01_A(IEnumerable<string> inputs) : base(inputs)
+        public _01(IEnumerable<string> inputs, VersionEnum version) : base(inputs, version)
         {
         }
 
-        protected override string Solver()
+        protected override string SolverA(IEnumerable<string> inputs)
         {
             var expenses = new List<int>();
-            foreach (var input in Inputs)
+            foreach (var input in inputs)
             {
                 var currentExpense = int.Parse(input);
                 expenses.Add(currentExpense);
@@ -23,18 +24,11 @@ namespace AdventOfCode.Solutions._2020
 
             return null;
         }
-    }
 
-    public class _01_B : Solution
-    {
-        public _01_B(IEnumerable<string> inputs) : base(inputs)
-        {
-        }
-
-        protected override string Solver()
+        protected override string SolverB(IEnumerable<string> inputs)
         {
             var expenses = new List<int>();
-            foreach (var input in Inputs)
+            foreach (var input in inputs)
             {
                 var currentExpense = int.Parse(input);
                 expenses.Add(currentExpense);
@@ -47,7 +41,6 @@ namespace AdventOfCode.Solutions._2020
             }
 
             return null;
-            ;
         }
     }
 }

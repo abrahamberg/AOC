@@ -6,11 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Solutions\2020\template.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Solutions\template.txt" />
+    <None Remove="2020\template.txt" />
   </ItemGroup>
 
   <ItemGroup>

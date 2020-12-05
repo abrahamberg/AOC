@@ -1,49 +1,56 @@
 # AOC
-Advent of Code
+## Advent of Code  https://adventofcode.com/
 
-## Add New solution 
-### The file 
-For each day make a file under Solutions/[year]/[day].cs
+> "Advent of Code is an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language you like. People use them as a speed contest, interview prep, company training, university coursework, practice problems, or to challenge each other.." _Eric Wastl
 
-ex . Solutions\2020\01.cs for 2020-12-01  
+## This
+> "This is a framework to write solutions in C# with less effort"  _me
+# Write code for a new puzzle 
+
+## The INPUT
+Copy the input of the day to the folder Input and name it [year]-[day].txt 
+
+``ex . C:\input\2020-01.txt  ``
+## Your Solution
+For each day make a file under [year]/[day].cs in the project
+
+``ex . .\2020\01.txt``
 
 ## The Code 
-Copy this code and replace xx with the day .
+Your class 
+in going to be named something like ` _01 ` Make it inherit from `Solution` and user visual studio to generate code  OR copy this code and replace xx with the day .
 
 Make sure your namespce matches the folder
 ```
-using System;
 using System.Collections.Generic;
+using AdventOfCode.Application;
 
-namespace AdventOfCode.Solutions._2020
+namespace AdventOfCode._2020
 {
-    public class _xx_A : Solution
+    class _XX : Solution
     {
-        public _xx_A(IEnumerable<string> inputs) : base(inputs) { }
-
-        protected override string Solver()
+        public _XX(IEnumerable<string> inputs, VersionEnum version) : base(inputs, version)
         {
-            throw new NotImplementedException();
         }
-    }
 
-    public class _xx_B : Solution
-    {
-        public _xx_B(IEnumerable<string> inputs) : base(inputs) { }
-
-        protected override string Solver()
+        protected override string SolverA(IEnumerable<string> inputs)
         {
-            throw new NotImplementedException();
+            throw new System.NotImplementedException();
+        }
+
+        protected override string SolverB(IEnumerable<string> inputs)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
+
 ```
 
-## The Input
-Copy the input of the day to the folder Input and name it [year]-[day].txt ex. 2020-01.txt
+
 
 ## The solution 
-Write your solution in the Solver(), don't forget to return your answer as string.
+Write your solution in the SolverA()  and SolverB() for each task of the day. **inputs** are the lines of the input file.  And don't forget to return your answer as string of course.
 
 ## The Run
 ### From Command Line 
@@ -57,7 +64,7 @@ and in appsettings.json
   "Input": "c:\\input"
 }
 ```
-### Visual Studio 
+### From Visual Studio 
 Update constants in the Program.cs 
 
 ```  
