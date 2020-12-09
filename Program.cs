@@ -10,8 +10,8 @@ namespace AdventOfCode
     {
         private static void Main(string[] args)
         {
-            const string defaultPuzzleName = "2020-08";
-            const string defaultPuzzleVersion = "A";
+            const string defaultPuzzleName = "2020-09";
+            const string defaultPuzzleVersion = "B";
 
             IUserInterface ui = new Console();
 
