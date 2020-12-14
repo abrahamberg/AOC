@@ -143,10 +143,10 @@ namespace AdventOfCode._2020
                         break;
                     default: throw new Exception();
                 }
-
-                Console.WriteLine(command);
-                Console.WriteLine($"Ship x:{X}, y:{Y}");
-                Console.WriteLine($"WayPoint x:{WayPoint.X}, y:{WayPoint.Y}");
+                
+                //Console.WriteLine(command);
+                //Console.WriteLine($"Ship x:{X}, y:{Y}");
+                //Console.WriteLine($"WayPoint x:{WayPoint.X}, y:{WayPoint.Y}");
             }
 
 
