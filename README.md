@@ -14,7 +14,7 @@ Copy the input of the day to the folder Input and name it [year]-[day].txt
 ## Your Solution
 For each day make a file under [year]/[day].cs in the project
 
-``ex . .\2020\01.txt``
+``ex . .\2020\01.cs``
 
 ## The Code 
 Your class 
@@ -29,16 +29,12 @@ namespace AdventOfCode._2020
 {
     class _XX : Solution
     {
-        public _XX(IEnumerable<string> inputs, VersionEnum version) 
-        {
-        }
-
-        ublic string SolverA(string[] inputs)
+        public string Puzzle1(IReadOnlyList<string> inputs)
         {
             throw new System.NotImplementedException();
         }
 
-        ublic string SolverB(string[] inputs)
+        public string Puzzle2(IReadOnlyList<string> inputs)
         {
             throw new System.NotImplementedException();
         }
@@ -56,7 +52,7 @@ Write your solution inside  SolverA()  and SolverB() for each task of the day. A
 ### From Command Line 
 Pass the puzzle name :"[year]-[day]"  version "A" or "B" as arguments.
 ```
- $ dotnet run "2020-03" "B"
+ $ dotnet run "2020-15" "A"
 ```
 and in appsettings.json 
 ```
@@ -82,10 +78,12 @@ and in appsettings.json
 ```
 
 
+ 
+
                    _____   ________  _________
                   /  _  \  \_      \ \_   ___ \
-                 /  /_\  \  /       \/    \  \/
-                /    |    \/         \     \____
+                 /  /_\  \  /  /\   \/    \  \/
+                /    |    \/   \/    \     \____
                 \____|__  /\_________/\______  /
                         \/                   \/
 
@@ -93,35 +91,15 @@ and in appsettings.json
          May the source be with you!
 
 
-         Fun fact: Only 20 days, 23 hours, 32 minuets, 53 seconds, 32 milliseconds to Christmas!
+         Fun fact: Only 7 days, 13 hours, 16 minuets, 47 seconds, 16 milliseconds to Christmas!
 
 
-
-                 _____         _
-                |_   _|       | |            _
-                  | | ___   __| | __ _ _   _(_)
-                  | |/ _ \ / _` |/ _` | | | |
-                  | | (_) | (_| | (_| | |_| |_
-                  \_/\___/ \__,_|\__,_|\__, (_)
-                                        __/ |
-                                       |___/
-
-For 2020-03/B
+          For 2020-15/A
 
 
-
-              /$$$$$$
-             /$$__  $$
-            | $$  \ $$ /$$$$$$$   /$$$$$$$ /$$  /$$  /$$  /$$$$$$   /$$$$$$
-            | $$$$$$$$| $$__  $$ /$$_____/| $$ | $$ | $$ /$$__  $$ /$$__  $$
-            | $$__  $$| $$  \ $$|  $$$$$$ | $$ | $$ | $$| $$$$$$$$| $$  \__/
-            | $$  | $$| $$  | $$ \____  $$| $$ | $$ | $$| $$_____/| $$
-            | $$  | $$| $$  | $$ /$$$$$$$/|  $$$$$/$$$$/|  $$$$$$$| $$
-            |__/  |__/|__/  |__/|_______/  \_____/\___/  \_______/|__/
-
-
-         is
-                 6818112000
+                        ********
+                        | 1009 |
+                        ********
 
 
          "Never tell me the odds!"  _Han Solo
