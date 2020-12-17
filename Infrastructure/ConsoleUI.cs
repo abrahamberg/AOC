@@ -10,8 +10,8 @@ namespace AdventOfCode.Infrastructure
             Show(@"
                    _____   ________  _________  
                   /  _  \  \_      \ \_   ___ \ 
-                 /  /_\  \  /       \/    \  \/ 
-                /    |    \/         \     \____
+                 /  /_\  \  /  /\   \/    \  \/ 
+                /    |    \/   \/    \     \____
                 \____|__  /\_________/\______  /
                         \/                   \/ 
             ");
@@ -25,35 +25,17 @@ namespace AdventOfCode.Infrastructure
 
         public void ShowCurrentPuzzle(string puzzleName, string puzzleVersion)
         {
-            Show(@"
-                 _____         _               
-                |_   _|       | |            _ 
-                  | | ___   __| | __ _ _   _(_)
-                  | |/ _ \ / _` |/ _` | | | |  
-                  | | (_) | (_| | (_| | |_| |_ 
-                  \_/\___/ \__,_|\__,_|\__, (_)
-                                        __/ |  
-                                       |___/   
-            ");
-            Show($"For {puzzleName}/{puzzleVersion}");
+        
+            Show($"\t  For {puzzleName}/{puzzleVersion}");
             ShowDivider();
         }
 
         public void ShowAnswer(string results)
         {
-            Show(@"
-              /$$$$$$                                                       
-             /$$__  $$                                                      
-            | $$  \ $$ /$$$$$$$   /$$$$$$$ /$$  /$$  /$$  /$$$$$$   /$$$$$$ 
-            | $$$$$$$$| $$__  $$ /$$_____/| $$ | $$ | $$ /$$__  $$ /$$__  $$
-            | $$__  $$| $$  \ $$|  $$$$$$ | $$ | $$ | $$| $$$$$$$$| $$  \__/
-            | $$  | $$| $$  | $$ \____  $$| $$ | $$ | $$| $$_____/| $$      
-            | $$  | $$| $$  | $$ /$$$$$$$/|  $$$$$/$$$$/|  $$$$$$$| $$      
-            |__/  |__/|__/  |__/|_______/  \_____/\___/  \_______/|__/      
-                                                                
-            ");
-            Show("\t is");
-            Show($"\t\t {results}");
+            Show($"\t\t\t*{"".PadLeft(results.Length + 2, '*')}*");
+            Show($"\t\t\t| {results} |");
+            Show($"\t\t\t*{"".PadLeft(results.Length + 2, '*')}*");
+            
 
 
             ShowDivider();

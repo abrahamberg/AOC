@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using AdventOfCode.Application;
 using AdventOfCode.Exceptions;
 using AdventOfCode.Infrastructure;
@@ -11,7 +12,7 @@ namespace AdventOfCode
         private static void Main(string[] args)
         {
             const string defaultPuzzleName = "2020-15";
-            const string defaultPuzzleVersion = "B";
+            const string defaultPuzzleVersion = "A";
 
             IUserInterface ui = new Console();
 
@@ -24,13 +25,14 @@ namespace AdventOfCode
                 var puzzleName = new PuzzleName(inPuzzleName);
                 var puzzleVersion = inPuzzleVersion.ToUpper() == "B" ? VersionEnum.B : VersionEnum.A;
                 var config = new AppConfig();
-                var inputs = FileParse.GetRows($"{config.BaseRoot}", $"{inPuzzleName}.txt");
-                var solution = SolutionFactory.Create(puzzleName, puzzleVersion, inputs);
+                var inputs = FileParse.GetRows($"{config.BaseRoot}", $"{inPuzzleName}.txt").ToArray();
+                ISolution solution = SolutionFactory.Create(puzzleName, puzzleVersion);
+                var results = puzzleVersion == VersionEnum.A ? solution.Puzzle1(inputs) : solution.Puzzle2(inputs);
 
 
                 ui.ShowWelcome();
                 ui.ShowCurrentPuzzle(inPuzzleName, puzzleVersion.ToString() );
-                ui.ShowAnswer(solution.Results);
+                ui.ShowAnswer(results);
             }
             catch (InputPathDoesNotExistException e)
             {
@@ -56,3 +58,6 @@ namespace AdventOfCode
         }
     }
 }
+
+
+

@@ -5,13 +5,11 @@ using AdventOfCode.Application;
 
 namespace AdventOfCode._2020
 {
-    internal class _09 : Solution
+    internal class _09 : ISolution
     {
-        public _09(IEnumerable<string> inputs, VersionEnum version) : base(inputs, version)
-        {
-        }
+    
 
-        protected override string SolverA(IEnumerable<string> inputs)
+        public string Puzzle1(IReadOnlyList<string> inputs)
         {
             const int preamble = 25;
             var all = inputs.Select(long.Parse).ToArray();
@@ -28,9 +26,9 @@ namespace AdventOfCode._2020
             return "Not Found";
         }
 
-        protected override string SolverB(IEnumerable<string> inputs)
+        public string Puzzle2(IReadOnlyList<string> inputs)
         {
-            var number = long.Parse(SolverA(inputs));
+            var number = long.Parse(Puzzle1(inputs));
             var all = inputs.Select(long.Parse).ToArray();
             for (var i = 0; i < all.Length; ++i)
             {

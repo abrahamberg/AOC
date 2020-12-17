@@ -4,18 +4,14 @@ using AdventOfCode.Application;
 
 namespace AdventOfCode._2020
 {
-    public class _03 : Solution
+    public class _03 : ISolution
     {
-        public _03(IEnumerable<string> inputs, VersionEnum version) : base(inputs, version)
-        {
-        }
-
-        protected override string SolverA(IEnumerable<string> inputs)
+        public string Puzzle1(IReadOnlyList<string> inputs)
         {
             return Slope.CountTrees(inputs.ToList(), 3, 1).ToString();
         }
 
-        protected override string SolverB(IEnumerable<string> inputs)
+        public string Puzzle2(IReadOnlyList<string> inputs)
         {
             var paths = new int[5];
             var enumerable = inputs as string[] ?? inputs.ToArray();

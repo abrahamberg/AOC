@@ -5,16 +5,12 @@ namespace AdventOfCode._2020
 {
     class _XX : Solution
     {
-        public _XX(IEnumerable<string> inputs, VersionEnum version) : base(inputs, version)
-        {
-        }
-
-        protected override string SolverA(IEnumerable<string> inputs)
+         public string Puzzle1(IReadOnlyList<string> inputs)
         {
             throw new System.NotImplementedException();
         }
 
-        protected override string SolverB(IEnumerable<string> inputs)
+        public string Puzzle2(IReadOnlyList<string> inputs)
         {
             throw new System.NotImplementedException();
         }

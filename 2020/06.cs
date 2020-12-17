@@ -4,19 +4,16 @@ using AdventOfCode.Application;
 
 namespace AdventOfCode._2020
 {
-    internal class _06 : Solution
+    internal class _06 : ISolution
     {
-        public _06(IEnumerable<string> inputs, VersionEnum version) : base(inputs, version)
-        { }
-
-        protected override string SolverA(IEnumerable<string> inputs)
+        public string Puzzle1(IReadOnlyList<string> inputs)
         {
             return Looper.Loop(inputs).Select(x
                     => x.Distinct().Count())
                 .Aggregate((current, member) => current + member).ToString();
         }
 
-        protected override string SolverB(IEnumerable<string> inputs)
+        public string Puzzle2(IReadOnlyList<string> inputs)
         {
             var count = 0;
 

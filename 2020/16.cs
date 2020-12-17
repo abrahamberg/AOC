@@ -4,20 +4,14 @@ using AdventOfCode.Application;
 
 namespace AdventOfCode._2020
 {
-    internal class _16 : Solution
+    internal class _16 : ISolution
     {
         private List<Field> _fieldes;
         private List<int> _myTicket;
         private List<List<int>> _tickets;
 
 
-        //TODO Constructor runs after methods, because they are called from base  
-        public _16(IEnumerable<string> inputs, VersionEnum version) : base(inputs, version)
-        { }
-
-        
-
-        protected override string SolverA(IEnumerable<string> inputs)
+        public string Puzzle1(IReadOnlyList<string> inputs)
         {
             Init(inputs);
             var validRange = _fieldes.SelectMany(x => x.Acceptable).Distinct().ToArray();
@@ -28,7 +22,7 @@ namespace AdventOfCode._2020
             return invalid.Sum().ToString();
         }
 
-        protected override string SolverB(IEnumerable<string> inputs)
+        public string Puzzle2(IReadOnlyList<string> inputs)
         {
             Init(inputs);
             var validRange = _fieldes.SelectMany(x => x.Acceptable).Distinct().ToArray();
@@ -64,7 +58,7 @@ namespace AdventOfCode._2020
                 .ToString();
         }
 
-        //read above why it is not placed in constructor 
+      
         private void Init(IEnumerable<string> inputs)
         {
             _fieldes = new List<Field>();

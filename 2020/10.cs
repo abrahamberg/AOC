@@ -4,13 +4,11 @@ using AdventOfCode.Application;
 
 namespace AdventOfCode._2020
 {
-    internal class _10 : Solution
+    internal class _10 : ISolution
     {
-        public _10(IEnumerable<string> inputs, VersionEnum version) : base(inputs, version)
-        {
-        }
+    
 
-        protected override string SolverA(IEnumerable<string> inputs)
+        public string Puzzle1(IReadOnlyList<string> inputs)
         {
             var all = inputs.Select(int.Parse).ToList();
             all.Sort();
@@ -32,7 +30,7 @@ namespace AdventOfCode._2020
             return (ones * threes).ToString();
         }
 
-        protected override string SolverB(IEnumerable<string> inputs)
+        public string Puzzle2(IReadOnlyList<string> inputs)
         {
             var all = inputs.Select(int.Parse).ToList();
             all.Sort();

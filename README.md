@@ -29,16 +29,16 @@ namespace AdventOfCode._2020
 {
     class _XX : Solution
     {
-        public _XX(IEnumerable<string> inputs, VersionEnum version) : base(inputs, version)
+        public _XX(IEnumerable<string> inputs, VersionEnum version) 
         {
         }
 
-        protected override string SolverA(IEnumerable<string> inputs)
+        ublic string SolverA(string[] inputs)
         {
             throw new System.NotImplementedException();
         }
 
-        protected override string SolverB(IEnumerable<string> inputs)
+        ublic string SolverB(string[] inputs)
         {
             throw new System.NotImplementedException();
         }

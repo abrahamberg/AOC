@@ -6,13 +6,11 @@ using AdventOfCode.Application;
 
 namespace AdventOfCode._2020
 {
-    internal class _12 : Solution
+    internal class _12 : ISolution
     {
-        public _12(IEnumerable<string> inputs, VersionEnum version) : base(inputs, version)
-        {
-        }
+     
 
-        protected override string SolverA(IEnumerable<string> inputs)
+        public string Puzzle1(IReadOnlyList<string> inputs)
         {
             var ship = new Ship(90, 0, 0);
             foreach (var input in inputs) ship.Navigate(input);
@@ -20,7 +18,7 @@ namespace AdventOfCode._2020
             return (Math.Abs(ship.X) + Math.Abs(ship.Y)).ToString();
         }
 
-        protected override string SolverB(IEnumerable<string> inputs)
+        public string Puzzle2(IReadOnlyList<string> inputs)
         {
             var wayPoint = new WayPoint(10, 1);
             var ship = new ShipWithWayPoint(wayPoint, 0, 0);

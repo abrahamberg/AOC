@@ -6,20 +6,16 @@ using AdventOfCode.Application;
 
 namespace AdventOfCode._2020
 {
-    public class _04 : Solution
+    public class _04 : ISolution
     {
-        public _04(IEnumerable<string> inputs, VersionEnum version) : base(inputs, version)
-        {
-        }
-
-        protected override string SolverA(IEnumerable<string> inputs)
+        public string Puzzle1(IReadOnlyList<string> inputs)
         {
             return Looper.CountValid(inputs.ToList(),
                     inputLines => new Passport(inputLines).FieldsAreValid())
                 .ToString();
         }
 
-        protected override string SolverB(IEnumerable<string> inputs)
+        public string Puzzle2(IReadOnlyList<string> inputs)
         {
             return Looper.CountValid(inputs,
                     inputLines => new Passport(inputLines).ContentsAreValid())

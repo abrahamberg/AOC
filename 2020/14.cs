@@ -5,13 +5,10 @@ using AdventOfCode.Application;
 
 namespace AdventOfCode._2020
 {
-    internal class _14 : Solution
+    internal class _14 : ISolution
     {
-        public _14(IEnumerable<string> inputs, VersionEnum version) : base(inputs, version)
-        {
-        }
 
-        protected override string SolverA(IEnumerable<string> inputs)
+        public string Puzzle1(IReadOnlyList<string> inputs)
         {
             
             var memory = new Dictionary<long, long>();
@@ -49,7 +46,7 @@ namespace AdventOfCode._2020
             return memory.Values.Sum().ToString();
         }
 
-        protected override string SolverB(IEnumerable<string> inputs)
+        public string Puzzle2(IReadOnlyList<string> inputs)
         {
             var memory = new Dictionary<long, long>();
             var msk = "".PadLeft(36, 'X');

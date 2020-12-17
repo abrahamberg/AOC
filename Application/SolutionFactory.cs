@@ -7,7 +7,7 @@ namespace AdventOfCode.Application
 {
     public static class SolutionFactory
     {
-        public static Solution Create(PuzzleName puzzleName, VersionEnum puzzleVersion, IEnumerable<string> inputs)
+        public static ISolution Create(PuzzleName puzzleName, VersionEnum puzzleVersion)
         {
             Guard.Against.Null(puzzleName, nameof(puzzleName));
             Guard.Against.Null(puzzleVersion, nameof(puzzleVersion));
@@ -19,7 +19,7 @@ namespace AdventOfCode.Application
             if (t is null)
                 throw new NotImplementedException($"{className} does not exits");
 
-            return (Solution) Activator.CreateInstance(t, inputs, puzzleVersion);
+            return (ISolution) Activator.CreateInstance(t);
         }
     }
 }

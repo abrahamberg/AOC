@@ -5,13 +5,12 @@ using AdventOfCode.Application;
 
 namespace AdventOfCode._2020
 {
-    internal class _08 : Solution
+    internal class _08 : ISolution
     {
-        public _08(IEnumerable<string> inputs, VersionEnum version) : base(inputs, version)
-        { }
+   
 
         // Puzzle  1
-        protected override string SolverA(IEnumerable<string> inputs)
+        public string Puzzle1(IReadOnlyList<string> inputs)
         {
             var currentValue = 0;
 
@@ -45,7 +44,7 @@ namespace AdventOfCode._2020
 
 
         // Puzzle  2
-        protected override string SolverB(IEnumerable<string> inputs)
+        public string Puzzle2(IReadOnlyList<string> inputs)
         {
             var enumerable = inputs.Select(x => new Model(x));
             var all = enumerable.ToArray();
