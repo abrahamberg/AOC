@@ -17,7 +17,7 @@ namespace AdventOfCode._2021
         {
             var intList = inputs.Select(x => int.Parse(x)).ToArray();
             var treeList = new List<int>();
-            for (int i = 0; (i < intList.Count() - 2); i++)
+            for (int i = 0; (i < intList.Length - 2); i++)
                 treeList.Add(intList[i]+ intList[i+1]+ intList[i+2]);
 
             var count = treeList.Where((x, idx) => idx == 0 || x > treeList[idx - 1]).Count() - 1;
