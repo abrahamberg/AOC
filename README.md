@@ -46,7 +46,7 @@ namespace AdventOfCode._2020
 
 
 ## The solution 
-Write your solution inside  SolverA()  and SolverB() for each task of the day. Arguments **inputs** are the lines of the input file.  And don't forget to return your answer as string of course.
+Write your solution inside  Puzzle1()  and Puzzle2() for each task of the day. Arguments **inputs** are the lines of the input file.  And don't forget to return your answer as string of course.
 
 ## The Run
 ### From Command Line 
