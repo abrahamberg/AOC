@@ -18,10 +18,10 @@ namespace AdventOfCode._2021
                         x = int.Parse(d[1]) + x;
                         break;
                     case "down":
-                        y = y - int.Parse(d[1]);
+                        y -= int.Parse(d[1]);
                         break;
                     case "up":
-                        y = int.Parse(d[1]) + y;
+                        y += int.Parse(d[1]) ;
                         break;
                 }
             }
