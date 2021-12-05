@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AdventOfCode.Application;
+using  System.Drawing;
 
 namespace AdventOfCode._2021
 {
@@ -54,10 +55,12 @@ namespace AdventOfCode._2021
 
         public string Puzzle2(IReadOnlyList<string> inputs)
         {
-
+            Pen pen = new Pen(Color.Black, 3);
             var lines = ParsLines(inputs);
             var buffer = 1000;
             int[,] points = new int[buffer, buffer];
+            var bmp = new Bitmap(buffer, buffer);
+            var gfx = Graphics.FromImage(bmp);
 
             foreach (var line in lines)
             {
@@ -70,6 +73,8 @@ namespace AdventOfCode._2021
                     for (int i = start; i <= end; i++)
                     {
                         CountThePoint(line[0], i);
+                        Point[] ps = { new Point(line[0], line[1]), new Point(line[2], line[3]) };
+                        gfx.DrawLines(pen, ps);
                     }
                 }
                 else if (line[1] == line[3])
@@ -80,6 +85,8 @@ namespace AdventOfCode._2021
                     for (int i = start; i <= end; i++)
                     {
                         CountThePoint(i, line[1]);
+                        Point[] ps = { new Point(line[0], line[1]), new Point(line[2], line[3]) };
+                        gfx.DrawLines(pen, ps);
                     }
                 }
                 else if (
@@ -87,6 +94,9 @@ namespace AdventOfCode._2021
                     || Math.Abs(line[0] - line[3]) == Math.Abs(line[1] - line[2])
                     )
                 {
+                    Point[] ps = { new Point(line[0], line[1]), new Point(line[2], line[3]) };
+                    gfx.DrawLines(pen, ps);
+
                     bool isStartSmallerX = line[0] <= line[2];
                     bool isStartSmallerY = line[1] <= line[3];
 
@@ -127,6 +137,7 @@ namespace AdventOfCode._2021
                 {
                     if (points[i, j] >= 2) count++;
                 }
+            bmp.Save("drawing-quickstart-console.png");
             return count.ToString();
         }
 
