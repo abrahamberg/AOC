@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.InteropServices;
 using AdventOfCode.Application;
 using AdventOfCode.Exceptions;
 using AdventOfCode.Infrastructure;
@@ -13,6 +14,8 @@ namespace AdventOfCode
         {
             const string defaultPuzzleName = "2021-06";
             const string defaultPuzzleVersion = "B";
+
+            var runtime = System.Runtime.InteropServices.RuntimeInformation.OSDescription;
 
             IUserInterface ui = new Console();
 
@@ -33,6 +36,8 @@ namespace AdventOfCode
                 ui.ShowWelcome();
                 ui.ShowCurrentPuzzle(inPuzzleName, puzzleVersion.ToString() );
                 ui.ShowAnswer(results);
+
+               
             }
             catch (InputPathDoesNotExistException e)
             {
