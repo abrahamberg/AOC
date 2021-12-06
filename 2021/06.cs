@@ -26,9 +26,8 @@ namespace AdventOfCode._2021
                     {
                         case 0:
                             newBorn = countDays[0];
-                            countDays[0]=0;
                             break;
-                        case 7:
+                        case 7:// add to day 6
                             countDays[i-1] = countDays[i]+newBorn;
                             break;
                         case 8:
@@ -72,9 +71,8 @@ namespace AdventOfCode._2021
                     {
                         case 0:
                             newBorn = countDays[0];
-                            countDays[0]=0;
                             break;
-                        case 7:
+                        case 7: // add to day 6
                             countDays[i-1] = countDays[i]+newBorn;
                             break;
                         case 8:
