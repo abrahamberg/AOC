@@ -12,7 +12,7 @@ namespace AdventOfCode
     {
         private static void Main(string[] args)
         {
-            const string defaultPuzzleName = "2021-07";
+            const string defaultPuzzleName = "2024-01";
             const string defaultPuzzleVersion = "B";
 
             var runtime = System.Runtime.InteropServices.RuntimeInformation.OSDescription;
