@@ -39,7 +39,7 @@ namespace AdventOfCode.Infrastructure
 
 
             ShowDivider();
-            Show("\t \"Never tell me the odds!\"  _Han Solo");
+            Show(Quotes.GetRandomQuote());
 
             ShowDivider();
         }
