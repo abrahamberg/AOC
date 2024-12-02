@@ -8,11 +8,11 @@ using Console = AdventOfCode.Infrastructure.Console;
 
 namespace AdventOfCode
 {
-    internal class Program
+    internal class _
     {
         private static void Main(string[] args)
         {
-            const string defaultPuzzleName = "2024-01";
+            const string defaultPuzzleName = "2024-02";
             const string defaultPuzzleVersion = "B";
 
             var runtime = System.Runtime.InteropServices.RuntimeInformation.OSDescription;
