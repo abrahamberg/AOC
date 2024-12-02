@@ -34,19 +34,18 @@ public class _02 : ISolution
 
     private static bool IsSafe(int[] numbers)
     {
-
         bool ascending = numbers[1] - numbers[0] > 0;
         var sorted = ascending ?
             numbers.OrderBy(x => x).ToArray() :
             numbers.OrderByDescending(x => x).ToArray();
         var correctOrder = sorted.SequenceEqual(numbers);
 
-        for (int i = 1; i < numbers.Length; i++)
-        {
-            var diff = Math.Abs(numbers[i] - numbers[i - 1]);
-            if (diff > 3 || diff == 0) return false;
-        }
-        return correctOrder;
+
+        bool isValid = numbers.Skip(1)
+            .Zip(numbers, (current, previous) => Math.Abs(current - previous))
+            .All(diff => diff <= 3 && diff != 0);
+
+        return isValid && correctOrder;
     }
 
 
